@@ -2,7 +2,7 @@
  * PDI1View.java
  */
 
-package pdi1;
+package ufpb.di.pdi;
 
 import org.jdesktop.application.Action;
 import org.jdesktop.application.ResourceMap;
@@ -127,11 +127,11 @@ public class PDI1View extends FrameView {
 
         menuBar.setName("menuBar"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(pdi1.PDI1App.class).getContext().getResourceMap(PDI1View.class);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(ufpb.di.pdi.PDI1App.class).getContext().getResourceMap(PDI1View.class);
         fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
         fileMenu.setName("fileMenu"); // NOI18N
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(pdi1.PDI1App.class).getContext().getActionMap(PDI1View.class, this);
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(ufpb.di.pdi.PDI1App.class).getContext().getActionMap(PDI1View.class, this);
         exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
         exitMenuItem.setName("exitMenuItem"); // NOI18N
         fileMenu.add(exitMenuItem);

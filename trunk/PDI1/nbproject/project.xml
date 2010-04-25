@@ -13,7 +13,7 @@
             </test-roots>
         </data>
         <swingapp xmlns="http://www.netbeans.org/ns/form-swingapp/1">
-            <application-class name="pdi1.PDI1App"/>
+            <application-class name="ufpb.di.pdi.PDI1App"/>
         </swingapp>
     </configuration>
 </project>
