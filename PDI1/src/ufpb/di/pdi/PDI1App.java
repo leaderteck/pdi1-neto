@@ -2,7 +2,7 @@
  * PDI1App.java
  */
 
-package pdi1;
+package ufpb.di.pdi;
 
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;
