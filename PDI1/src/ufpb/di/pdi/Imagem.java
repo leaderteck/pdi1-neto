@@ -8,23 +8,27 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author neto
+ * Representação de uma imagem
+ * @since 23 de abril de 2010
+ * @author Juracy Neto - juracylucena[at]gmail.com
  */
 public class Imagem {
 
-    File arquivo;
-    BufferedImage imagem;
+    private File arquivo;
+    private BufferedImage imagem;
+    private boolean RGB;
 
     public Imagem(File arquivo, BufferedImage imagem) {
         this.arquivo = arquivo;
         this.imagem = imagem;
+        this.RGB = true;
     }
 
     public Imagem(String caminhoArquivo) {
         try {
             arquivo = new File(caminhoArquivo);
             imagem = ImageIO.read(arquivo);
+            this.RGB = true;
         } catch (IOException ex) {
             System.out.println("Erro na abertura do arquivo. Verifique a extensão. \n");
             Logger.getLogger(Imagem.class.getName()).log(Level.SEVERE, null, ex);
@@ -54,6 +58,14 @@ public class Imagem {
 
     public void setImagem(BufferedImage imagem) {
         this.imagem = imagem;
+    }
+
+    public boolean isRGB() {
+        return RGB;
+    }
+
+    public void setRGB(boolean ehRGB) {
+        this.RGB = ehRGB;
     }
 
 }

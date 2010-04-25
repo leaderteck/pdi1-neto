@@ -3,17 +3,18 @@ package ufpb.di.pdi.operacoes;
 import ufpb.di.pdi.Imagem;
 
 /**
- *
- * @author neto
+ * Operações de Brilho aditivo e multiplicativo em uma imagem RGB
+ * @since 23 de abril de 2010
+ * @author Juracy Neto - juracylucena[at]gmail.com
  */
 public class Brilho {
 
-    public Imagem brilhoAditivo(Imagem imagemOriginal) {
+    public static Imagem brilhoAditivo(Imagem imagemOriginal) {
 
         return new Imagem(null, null);
     }
 
-    public Imagem brilhoMultiplicativo(Imagem imagemOriginal) {
+    public static Imagem brilhoMultiplicativo(Imagem imagemOriginal) {
 
         return new Imagem(null, null);
     }
