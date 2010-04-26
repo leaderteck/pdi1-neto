@@ -49,7 +49,7 @@ public class Conversoes {
             for (int j = 0; j < largura; j++) {
                 int rgb = imagem.getRGB(j, i);
                 int b = (rgb) & 255;
-                rgb = 0 | 0 | b;
+                rgb = 0 | 0 | (b);
                 imagem.setRGB(j, i, rgb);
             }
         }
@@ -69,7 +69,7 @@ public class Conversoes {
                 r = 255 - r;
                 g = 255 - g;
                 b = 255 - b;
-                rgb = (r >> 16) | (g << 8) | b;
+                rgb = (r << 16) | (g << 8) | (b);
                 imagem.setRGB(j, i, rgb);
             }
         }
