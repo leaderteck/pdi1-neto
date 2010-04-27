@@ -8,6 +8,7 @@ import ufpb.di.pdi.Imagem;
  * Operações de Conversão em uma imagem RGB
  * @since 23 de abril de 2010
  * @author Juracy Neto - juracylucena[at]gmail.com
+ * @author Erison Moura - erisonmoura[at]gmail.com
  */
 public class Conversoes {
 
