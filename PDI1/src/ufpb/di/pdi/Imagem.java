@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
  * Representação de uma imagem
  * @since 23 de abril de 2010
  * @author Juracy Neto - juracylucena[at]gmail.com
+ * @author Erison Moura - erisonmoura[at]gmail.com
  */
 public class Imagem {
 
