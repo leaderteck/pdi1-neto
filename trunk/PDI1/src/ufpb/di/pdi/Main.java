@@ -18,8 +18,9 @@ public class Main {
         File arquivo = new File("/home/neto/saida.jpg");
         //Imagem saida = Filtros.mediana(img, arquivo, 10);
         //Brilho.brilhoAditivo(img, arquivo, 50);
-        Imagem saida = Conversoes.merge(img,img2, arquivo);
-        saida.salvarImagem(arquivo);
+        Imagem saida = Conversoes.RGBParaYIQ(img, arquivo);
+        Imagem saida2 = Conversoes.YIQParaRGB(saida, arquivo);
+        saida2.salvarImagem(arquivo);
     }
 
 }
