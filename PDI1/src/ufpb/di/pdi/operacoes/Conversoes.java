@@ -114,9 +114,12 @@ public class Conversoes {
                 int g = (rgb >> 8) & 255;
                 int b = (rgb) & 255;
                 Double y = ((0.299 * r) + (0.587 * g) + (0.114 * b));
-                Double u = ((-0.14713 * r) + (-0.28886 * g) + (0.436 * b));
-                Double v = ((0.615 * r) + (-0.51498 * g) + (-0.10001 * b));
-                int yuv = (r >> 16) | (g << 8) | b;
+                Double u = ((0.596 * r) - (0.274 * g) - (0.322 * b));
+                Double v = ((0.211 * r) - (0.523 * g) + (0.312 * b));
+                Integer rConv = y.intValue();
+                Integer gConv = u.intValue();
+                Integer bConv = v.intValue();
+                int yuv = (rConv >> 16) | (gConv << 8) | bConv;
                 imagem.setRGB(j, i, yuv);
             }
         }
@@ -131,6 +134,18 @@ public class Conversoes {
         Integer largura = imagem.getWidth();
         for (int i = 0; i < altura; i++) {
             for (int j = 0; j < largura; j++) {
+                int yuv = imagem.getRGB(j, i);
+                int y = (yuv >> 16) & 255;
+                int u = (yuv >> 8) & 255;
+                int v = (yuv) & 255;
+                Double r = ((1.000 * y) + (0.956 * u) + (0.621 * v));
+                Double g = ((1.000 * y) - (0.272 * u) - (0.647 * v));
+                Double b = ((1.000 * y) - (1.106 * u) + (1.703 * v));
+                Integer rConv = r.intValue();
+                Integer gConv = g.intValue();
+                Integer bConv = b.intValue();
+                int rgb = (rConv >> 16) | (gConv << 8) | bConv;
+                imagem.setRGB(j, i, rgb);
             }
         }
         Imagem resultado = new Imagem(novoArquivo, imagem);
