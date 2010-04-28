@@ -11,10 +11,14 @@ import org.jdesktop.application.FrameView;
 import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * The application's main frame.
@@ -101,10 +105,10 @@ public class PDI1View extends FrameView {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
         javax.swing.JMenu helpMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
@@ -117,19 +121,6 @@ public class PDI1View extends FrameView {
         mainPanel.setMinimumSize(new java.awt.Dimension(800, 600));
         mainPanel.setName("mainPanel"); // NOI18N
 
-        jPanel1.setName("jPanel1"); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 633, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(ufpb.di.pdi.PDI1App.class).getContext().getResourceMap(PDI1View.class);
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
@@ -140,18 +131,15 @@ public class PDI1View extends FrameView {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addContainerGap(742, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(556, 556, 556))
         );
 
         jLabel1.getAccessibleContext().setAccessibleName(resourceMap.getString("jLabel1.AccessibleContext.accessibleName")); // NOI18N
@@ -162,6 +150,11 @@ public class PDI1View extends FrameView {
         fileMenu.setName("fileMenu"); // NOI18N
 
         javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(ufpb.di.pdi.PDI1App.class).getContext().getActionMap(PDI1View.class, this);
+        jMenuItem1.setAction(actionMap.get("abrirAction")); // NOI18N
+        jMenuItem1.setText(resourceMap.getString("jMenuItem1.text")); // NOI18N
+        jMenuItem1.setName("jMenuItem1"); // NOI18N
+        fileMenu.add(jMenuItem1);
+
         exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
         exitMenuItem.setName("exitMenuItem"); // NOI18N
         fileMenu.add(exitMenuItem);
@@ -220,9 +213,53 @@ public class PDI1View extends FrameView {
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
 
+    @Action
+    public void abrirAction() {
+        FileFilter fileFilter = new FileNameExtensionFilter("imagem", "jpg");
+        JFrame mainFrame = PDI1App.getApplication().getMainFrame();
+        if (fileChooser == null) {            
+            fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Selecione um arquivo");
+            fileChooser.setApproveButtonText("Selecionar");
+            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fileChooser.setFileFilter(null);
+            fileChooser.setMultiSelectionEnabled(false);
+            fileChooser.addChoosableFileFilter(fileFilter);
+            fileChooser.showOpenDialog(mainFrame);
+        }
+         this.arquivoOriginal = fileChooser.getSelectedFile();
+         
+    }
+
+
+        /**
+     * Seleciona um arquivo de acordo com as extensoes
+     *
+     * @param extensionsDescription descricao das extensoes dos arquivos que podem ser selcionados
+     * @param extensions as extensoes permitidas
+     *
+     * @return o arquivo selecionado ou null se nada foi selecionado
+     */
+    private File selectFile(String descricao, String extensao) {
+        if(extensao == null)
+            return null;
+
+        FileFilter fileFilter = new FileNameExtensionFilter("imagem", "jpg");
+
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setDialogTitle("Selecione um arquivo");
+        jFileChooser.setApproveButtonText("Selecionar");
+        jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        jFileChooser.setFileFilter(null);
+        jFileChooser.setMultiSelectionEnabled(false);
+        jFileChooser.addChoosableFileFilter(fileFilter);
+        jFileChooser.show();
+        return jFileChooser.getSelectedFile();
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;
@@ -237,5 +274,11 @@ public class PDI1View extends FrameView {
     private final Icon[] busyIcons = new Icon[15];
     private int busyIconIndex = 0;
 
+    private File arquivoOriginal;
+    private Imagem imagemOriginal1;
+    private Imagem imagemOriginal2;
+    private Imagem imagemSaida;
+
     private JDialog aboutBox;
+    private JFileChooser fileChooser;
 }
