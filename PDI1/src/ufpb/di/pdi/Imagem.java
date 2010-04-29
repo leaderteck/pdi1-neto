@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 /**
  * Representação de uma imagem
@@ -13,7 +14,7 @@ import javax.imageio.ImageIO;
  * @author Juracy Neto - juracylucena[at]gmail.com
  * @author Erison Moura - erisonmoura[at]gmail.com
  */
-public class Imagem {
+public class Imagem extends JPanel {
 
     private File arquivo;
     private BufferedImage imagem;
