@@ -47,9 +47,9 @@ public class Filtros {
         for (int j = 0; j < altura; j++) {
             for (int i = 0; i < largura; i++) {
                 int rgb = imagem.getRGB(i, j);
-                matrizImagem[i][j][0] = (rgb >> 16) & 255;
-                matrizImagem[i][j][1] = (rgb >> 8) & 255;
-                matrizImagem[i][j][2] = (rgb) & 255;
+                matrizImagem[j][i][0] = (rgb >> 16) & 255;
+                matrizImagem[j][i][1] = (rgb >> 8) & 255;
+                matrizImagem[j][i][2] = (rgb) & 255;
             }
         }
         imagem = medianaVizinhanca(vizinhanca, imagemOriginal.getImagem(), matrizImagem);
