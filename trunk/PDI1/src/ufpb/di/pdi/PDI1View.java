@@ -20,7 +20,9 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import ufpb.di.pdi.operacoes.Brilho;
 import ufpb.di.pdi.operacoes.Conversoes;
+import ufpb.di.pdi.operacoes.Filtros;
 
 /**
  * The application's main frame.
@@ -107,10 +109,24 @@ public class PDI1View extends FrameView {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        frameImagemOriginal = new javax.swing.JInternalFrame();
-        frameImagemEditada = new javax.swing.JInternalFrame();
         jPanel1 = new javax.swing.JPanel();
         bandaRButton = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        bandaGButton = new javax.swing.JButton();
+        bandaBButton = new javax.swing.JButton();
+        negativoButton = new javax.swing.JButton();
+        mediaButton = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        medianaButton = new javax.swing.JButton();
+        brilhoAditivoButton = new javax.swing.JButton();
+        brilhoMultiplicativoButton = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        mergeButton = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -127,40 +143,21 @@ public class PDI1View extends FrameView {
         mainPanel.setName("mainPanel"); // NOI18N
         mainPanel.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        frameImagemOriginal.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        frameImagemOriginal.setMaximizable(true);
-        frameImagemOriginal.setName("frameImagemOriginal"); // NOI18N
-        frameImagemOriginal.setVisible(true);
-
-        javax.swing.GroupLayout frameImagemOriginalLayout = new javax.swing.GroupLayout(frameImagemOriginal.getContentPane());
-        frameImagemOriginal.getContentPane().setLayout(frameImagemOriginalLayout);
-        frameImagemOriginalLayout.setHorizontalGroup(
-            frameImagemOriginalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 165, Short.MAX_VALUE)
-        );
-        frameImagemOriginalLayout.setVerticalGroup(
-            frameImagemOriginalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 186, Short.MAX_VALUE)
-        );
-
-        frameImagemEditada.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        frameImagemEditada.setMaximizable(true);
-        frameImagemEditada.setName("frameImagemEditada"); // NOI18N
-        frameImagemEditada.setVisible(true);
-
-        javax.swing.GroupLayout frameImagemEditadaLayout = new javax.swing.GroupLayout(frameImagemEditada.getContentPane());
-        frameImagemEditada.getContentPane().setLayout(frameImagemEditadaLayout);
-        frameImagemEditadaLayout.setHorizontalGroup(
-            frameImagemEditadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 166, Short.MAX_VALUE)
-        );
-        frameImagemEditadaLayout.setVerticalGroup(
-            frameImagemEditadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 186, Short.MAX_VALUE)
-        );
-
         jPanel1.setName("jPanel1"); // NOI18N
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 558, Short.MAX_VALUE)
+        );
+
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(ufpb.di.pdi.PDI1App.class).getContext().getActionMap(PDI1View.class, this);
+        bandaRButton.setAction(actionMap.get("bandaRButtonActionPerformed")); // NOI18N
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(ufpb.di.pdi.PDI1App.class).getContext().getResourceMap(PDI1View.class);
         bandaRButton.setText(resourceMap.getString("bandaRButton.text")); // NOI18N
         bandaRButton.setActionCommand(resourceMap.getString("bandaRButton.actionCommand")); // NOI18N
@@ -171,22 +168,102 @@ public class PDI1View extends FrameView {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bandaRButton, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(bandaRButton)
-                .addContainerGap(512, Short.MAX_VALUE))
-        );
+        jTextField1.setText(resourceMap.getString("jTextField1.text")); // NOI18N
+        jTextField1.setName("jTextField1"); // NOI18N
+
+        jTextField2.setText(resourceMap.getString("jTextField2.text")); // NOI18N
+        jTextField2.setName("jTextField2"); // NOI18N
+
+        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
+        jLabel1.setName("jLabel1"); // NOI18N
+
+        jLabel2.setText(resourceMap.getString("jLabel2.text")); // NOI18N
+        jLabel2.setName("jLabel2"); // NOI18N
+
+        bandaGButton.setText(resourceMap.getString("bandaGButton.text")); // NOI18N
+        bandaGButton.setActionCommand(resourceMap.getString("bandaGButton.actionCommand")); // NOI18N
+        bandaGButton.setName("bandaGButton"); // NOI18N
+        bandaGButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bandaGButtonActionPerformed(evt);
+            }
+        });
+
+        bandaBButton.setText(resourceMap.getString("bandaBButton.text")); // NOI18N
+        bandaBButton.setActionCommand(resourceMap.getString("bandaBButton.actionCommand")); // NOI18N
+        bandaBButton.setName("bandaBButton"); // NOI18N
+        bandaBButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bandaBButtonActionPerformed(evt);
+            }
+        });
+
+        negativoButton.setText(resourceMap.getString("negativoButton.text")); // NOI18N
+        negativoButton.setActionCommand(resourceMap.getString("negativoButton.actionCommand")); // NOI18N
+        negativoButton.setName("negativoButton"); // NOI18N
+        negativoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                negativoButtonActionPerformed(evt);
+            }
+        });
+
+        mediaButton.setAction(actionMap.get("bandaRButtonActionPerformed")); // NOI18N
+        mediaButton.setText(resourceMap.getString("mediaButton.text")); // NOI18N
+        mediaButton.setActionCommand(resourceMap.getString("mediaButton.actionCommand")); // NOI18N
+        mediaButton.setName("mediaButton"); // NOI18N
+        mediaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mediaButtonActionPerformed(evt);
+            }
+        });
+
+        jTextField3.setText(resourceMap.getString("jTextField3.text")); // NOI18N
+        jTextField3.setName("jTextField3"); // NOI18N
+
+        jLabel3.setText(resourceMap.getString("jLabel3.text")); // NOI18N
+        jLabel3.setName("jLabel3"); // NOI18N
+
+        medianaButton.setAction(actionMap.get("bandaRButtonActionPerformed")); // NOI18N
+        medianaButton.setText(resourceMap.getString("medianaButton.text")); // NOI18N
+        medianaButton.setActionCommand(resourceMap.getString("medianaButton.actionCommand")); // NOI18N
+        medianaButton.setName("medianaButton"); // NOI18N
+        medianaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medianaButtonActionPerformed(evt);
+            }
+        });
+
+        brilhoAditivoButton.setText(resourceMap.getString("brilhoAditivoButton.text")); // NOI18N
+        brilhoAditivoButton.setActionCommand(resourceMap.getString("brilhoAditivoButton.actionCommand")); // NOI18N
+        brilhoAditivoButton.setName("brilhoAditivoButton"); // NOI18N
+        brilhoAditivoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brilhoAditivoButtonActionPerformed(evt);
+            }
+        });
+
+        brilhoMultiplicativoButton.setText(resourceMap.getString("brilhoMultiplicativoButton.text")); // NOI18N
+        brilhoMultiplicativoButton.setActionCommand(resourceMap.getString("brilhoMultiplicativoButton.actionCommand")); // NOI18N
+        brilhoMultiplicativoButton.setName("brilhoMultiplicativoButton"); // NOI18N
+        brilhoMultiplicativoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brilhoMultiplicativoButtonActionPerformed(evt);
+            }
+        });
+
+        jTextField4.setName("jTextField4"); // NOI18N
+
+        jLabel4.setText(resourceMap.getString("jLabel4.text")); // NOI18N
+        jLabel4.setName("jLabel4"); // NOI18N
+
+        mergeButton.setText(resourceMap.getString("mergeButton.text")); // NOI18N
+        mergeButton.setActionCommand(resourceMap.getString("mergeButton.actionCommand")); // NOI18N
+        mergeButton.setName("mergeButton"); // NOI18N
+        mergeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mergeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -194,33 +271,91 @@ public class PDI1View extends FrameView {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(frameImagemOriginal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(frameImagemEditada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(242, 242, 242)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(negativoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bandaRButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                            .addComponent(mergeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mediaButton, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                            .addComponent(bandaGButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(medianaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bandaBButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(brilhoAditivoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(brilhoMultiplicativoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(483, 483, 483))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
+                            .addComponent(jLabel2))
+                        .addGap(37, 37, 37)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(318, 318, 318))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(frameImagemEditada, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(frameImagemOriginal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(364, 364, 364))
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bandaRButton)
+                            .addComponent(bandaBButton)
+                            .addComponent(bandaGButton)
+                            .addComponent(brilhoAditivoButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(negativoButton)
+                            .addComponent(mediaButton)
+                            .addComponent(medianaButton)
+                            .addComponent(brilhoMultiplicativoButton))
+                        .addGap(3, 3, 3)
+                        .addComponent(mergeButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        negativoButton.getAccessibleContext().setAccessibleName(resourceMap.getString("negativoButton.AccessibleContext.accessibleName")); // NOI18N
+        medianaButton.getAccessibleContext().setAccessibleName(resourceMap.getString("mediaButton1.AccessibleContext.accessibleName")); // NOI18N
 
         menuBar.setName("menuBar"); // NOI18N
 
         fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
         fileMenu.setName("fileMenu"); // NOI18N
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(ufpb.di.pdi.PDI1App.class).getContext().getActionMap(PDI1View.class, this);
         jMenuItem1.setAction(actionMap.get("abrirAction")); // NOI18N
         jMenuItem1.setText(resourceMap.getString("jMenuItem1.text")); // NOI18N
         jMenuItem1.setName("jMenuItem1"); // NOI18N
@@ -285,14 +420,103 @@ public class PDI1View extends FrameView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bandaRButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bandaRButtonActionPerformed
-        if (arquivoOriginal != null && imagemOriginal1 != null) {
-            imagemSaida = Conversoes.bandaR(imagemOriginal1, arquivoOriginal);
-            frameImagemEditada = new JInternalFrame("Resultado", true, true, true);
-            frameImagemEditada.getContentPane().add(imagemSaida);
-            frameImagemEditada.pack();            
-            frameImagemEditada.setVisible(true);
-        }        
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        File arquivo = new File(caminhoSaida);
+        Imagem saida = Conversoes.bandaR(img, arquivo);        
+        saida.salvarImagem(arquivo);      
     }//GEN-LAST:event_bandaRButtonActionPerformed
+
+    private void bandaGButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bandaGButtonActionPerformed
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        File arquivo = new File(caminhoSaida);
+        Imagem saida = Conversoes.bandaG(img, arquivo);
+        saida.salvarImagem(arquivo);    
+    }//GEN-LAST:event_bandaGButtonActionPerformed
+
+    private void bandaBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bandaBButtonActionPerformed
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        File arquivo = new File(caminhoSaida);
+        Imagem saida = Conversoes.bandaB(img, arquivo);
+        saida.salvarImagem(arquivo);
+    }//GEN-LAST:event_bandaBButtonActionPerformed
+
+    private void negativoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negativoButtonActionPerformed
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        File arquivo = new File(caminhoSaida);
+        Imagem saida = Conversoes.negativo(img, arquivo);
+        saida.salvarImagem(arquivo);
+    }//GEN-LAST:event_negativoButtonActionPerformed
+
+    private void mediaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediaButtonActionPerformed
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        File arquivo = new File(caminhoSaida);
+        int constante = Integer.valueOf(jTextField3.getText());
+        if (jTextField3.getText() == null) {
+            constante = 10;
+        }
+        Imagem saida = Filtros.media(img, arquivo, constante);
+        saida.salvarImagem(arquivo);
+    }//GEN-LAST:event_mediaButtonActionPerformed
+
+    private void medianaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medianaButtonActionPerformed
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        File arquivo = new File(caminhoSaida);
+        int constante = Integer.valueOf(jTextField3.getText());
+        if (jTextField3.getText() == null) {
+            constante = 10;
+        }
+        Imagem saida = Filtros.media(img, arquivo, constante);
+        saida.salvarImagem(arquivo);
+    }//GEN-LAST:event_medianaButtonActionPerformed
+
+    private void brilhoAditivoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brilhoAditivoButtonActionPerformed
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        File arquivo = new File(caminhoSaida);
+        int constante = Integer.valueOf(jTextField3.getText());
+        if (jTextField3.getText() == null) {
+            constante = 10;
+        }
+        Imagem saida = Brilho.brilhoAditivo(img, arquivo, constante);
+        saida.salvarImagem(arquivo);
+    }//GEN-LAST:event_brilhoAditivoButtonActionPerformed
+
+    private void brilhoMultiplicativoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brilhoMultiplicativoButtonActionPerformed
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        File arquivo = new File(caminhoSaida);
+        Double constante = Double.valueOf(jTextField3.getText());
+        if (jTextField3.getText() == null) {
+            constante = 10.0;
+        }
+        Imagem saida = Brilho.brilhoMultiplicativo(img, arquivo, constante);
+        saida.salvarImagem(arquivo);
+    }//GEN-LAST:event_brilhoMultiplicativoButtonActionPerformed
+
+    private void mergeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mergeButtonActionPerformed
+        String caminhoEntrada = jTextField1.getText();
+        String caminhoSaida = jTextField2.getText();
+        String caminhoEntrada2 = jTextField4.getText();
+        Imagem img = new Imagem(caminhoEntrada);
+        Imagem img2 = new Imagem(caminhoEntrada2);
+        File arquivo = new File(caminhoSaida);
+        Imagem saida = Conversoes.merge(img, img2, arquivo);
+        saida.salvarImagem(arquivo);
+    }//GEN-LAST:event_mergeButtonActionPerformed
 
     @Action
     public void abrirAction() {
@@ -313,15 +537,28 @@ public class PDI1View extends FrameView {
     }
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bandaBButton;
+    private javax.swing.JButton bandaGButton;
     private javax.swing.JButton bandaRButton;
-    private javax.swing.JInternalFrame frameImagemEditada;
-    private javax.swing.JInternalFrame frameImagemOriginal;
+    private javax.swing.JButton brilhoAditivoButton;
+    private javax.swing.JButton brilhoMultiplicativoButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JButton mediaButton;
+    private javax.swing.JButton medianaButton;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JButton mergeButton;
+    private javax.swing.JButton negativoButton;
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JLabel statusAnimationLabel;
     private javax.swing.JLabel statusMessageLabel;
