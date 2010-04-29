@@ -13,14 +13,12 @@ import ufpb.di.pdi.operacoes.Filtros;
 public class Main {
 
     public static void main(String[] args) {
-        Imagem img = new Imagem("/home/neto/casaA.jpg");
-        Imagem img2 = new Imagem("/home/neto/casaB.jpg");
-        File arquivo = new File("/home/neto/saida.jpg");
-        //Imagem saida = Filtros.mediana(img, arquivo, 10);
-        //Brilho.brilhoAditivo(img, arquivo, 50);
-        Imagem saida = Conversoes.RGBParaYIQ(img, arquivo);
-        Imagem saida2 = Conversoes.YIQParaRGB(saida, arquivo);
-        saida2.salvarImagem(arquivo);
+        Imagem img = new Imagem("/home/neto/entrada.jpg");
+        Imagem img2 = new Imagem("/home/neto/entrada2.jpg");
+        File arquivo = new File("/home/neto/saida.jpg");        
+        Imagem saida = Filtros.mediana(img, arquivo, 20);
+        //Imagem saida2 = Conversoes.YIQParaRGB(saida, arquivo);
+        saida.salvarImagem(arquivo);
     }
 
 }

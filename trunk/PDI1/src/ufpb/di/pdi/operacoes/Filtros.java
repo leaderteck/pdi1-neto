@@ -24,9 +24,9 @@ public class Filtros {
         for (int j = 0; j < altura; j++) {
             for (int i = 0; i < largura; i++) {
                 int rgb = imagem.getRGB(i, j);
-                matrizImagem[i][j][0] = (rgb >> 16) & 255;
-                matrizImagem[i][j][1] = (rgb >> 8) & 255;
-                matrizImagem[i][j][2] = (rgb) & 255;
+                matrizImagem[j][i][0] = (rgb >> 16) & 255;
+                matrizImagem[j][i][1] = (rgb >> 8) & 255;
+                matrizImagem[j][i][2] = (rgb) & 255;
             }
         }
         imagem = mediaVizinhanca(vizinhanca, imagemOriginal.getImagem(), matrizImagem);
@@ -111,7 +111,7 @@ public class Filtros {
                 int g = ((matrizNovaImagem[j][i][1])) & 255;
                 int b = (matrizNovaImagem[j][i][2]) & 255;
                 int rgb = (r << 16) | (g << 8) | (b);
-                novaImagem.setRGB(j, i, rgb);
+                novaImagem.setRGB(i, j, rgb);
             }
         }
 
@@ -171,7 +171,7 @@ public class Filtros {
                 int g = ((matrizNovaImagem[j][i][1])) & 255;
                 int b = (matrizNovaImagem[j][i][2]) & 255;
                 int rgb = (r << 16) | (g << 8) | (b);
-                novaImagem.setRGB(j, i, rgb);
+                novaImagem.setRGB(i, j, rgb);
             }
         }
 

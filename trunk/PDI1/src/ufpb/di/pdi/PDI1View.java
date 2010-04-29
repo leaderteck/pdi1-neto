@@ -17,8 +17,10 @@ import javax.swing.Icon;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import ufpb.di.pdi.operacoes.Conversoes;
 
 /**
  * The application's main frame.
@@ -105,7 +107,10 @@ public class PDI1View extends FrameView {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        frameImagemOriginal = new javax.swing.JInternalFrame();
+        frameImagemEditada = new javax.swing.JInternalFrame();
+        jPanel1 = new javax.swing.JPanel();
+        bandaRButton = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -120,10 +125,68 @@ public class PDI1View extends FrameView {
 
         mainPanel.setMinimumSize(new java.awt.Dimension(800, 600));
         mainPanel.setName("mainPanel"); // NOI18N
+        mainPanel.setPreferredSize(new java.awt.Dimension(800, 600));
+
+        frameImagemOriginal.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        frameImagemOriginal.setMaximizable(true);
+        frameImagemOriginal.setName("frameImagemOriginal"); // NOI18N
+        frameImagemOriginal.setVisible(true);
+
+        javax.swing.GroupLayout frameImagemOriginalLayout = new javax.swing.GroupLayout(frameImagemOriginal.getContentPane());
+        frameImagemOriginal.getContentPane().setLayout(frameImagemOriginalLayout);
+        frameImagemOriginalLayout.setHorizontalGroup(
+            frameImagemOriginalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 165, Short.MAX_VALUE)
+        );
+        frameImagemOriginalLayout.setVerticalGroup(
+            frameImagemOriginalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 186, Short.MAX_VALUE)
+        );
+
+        frameImagemEditada.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        frameImagemEditada.setMaximizable(true);
+        frameImagemEditada.setName("frameImagemEditada"); // NOI18N
+        frameImagemEditada.setVisible(true);
+
+        javax.swing.GroupLayout frameImagemEditadaLayout = new javax.swing.GroupLayout(frameImagemEditada.getContentPane());
+        frameImagemEditada.getContentPane().setLayout(frameImagemEditadaLayout);
+        frameImagemEditadaLayout.setHorizontalGroup(
+            frameImagemEditadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 166, Short.MAX_VALUE)
+        );
+        frameImagemEditadaLayout.setVerticalGroup(
+            frameImagemEditadaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 186, Short.MAX_VALUE)
+        );
+
+        jPanel1.setName("jPanel1"); // NOI18N
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(ufpb.di.pdi.PDI1App.class).getContext().getResourceMap(PDI1View.class);
-        jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
-        jLabel1.setName("jLabel1"); // NOI18N
+        bandaRButton.setText(resourceMap.getString("bandaRButton.text")); // NOI18N
+        bandaRButton.setActionCommand(resourceMap.getString("bandaRButton.actionCommand")); // NOI18N
+        bandaRButton.setName("bandaRButton"); // NOI18N
+        bandaRButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bandaRButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bandaRButton, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(bandaRButton)
+                .addContainerGap(512, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -131,18 +194,26 @@ public class PDI1View extends FrameView {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(742, Short.MAX_VALUE))
+                .addComponent(frameImagemOriginal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(frameImagemEditada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(242, 242, 242)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(556, 556, 556))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(frameImagemEditada, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(frameImagemOriginal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(364, 364, 364))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        jLabel1.getAccessibleContext().setAccessibleName(resourceMap.getString("jLabel1.AccessibleContext.accessibleName")); // NOI18N
 
         menuBar.setName("menuBar"); // NOI18N
 
@@ -213,6 +284,16 @@ public class PDI1View extends FrameView {
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bandaRButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bandaRButtonActionPerformed
+        if (arquivoOriginal != null && imagemOriginal1 != null) {
+            imagemSaida = Conversoes.bandaR(imagemOriginal1, arquivoOriginal);
+            frameImagemEditada = new JInternalFrame("Resultado", true, true, true);
+            frameImagemEditada.getContentPane().add(imagemSaida);
+            frameImagemEditada.pack();            
+            frameImagemEditada.setVisible(true);
+        }        
+    }//GEN-LAST:event_bandaRButtonActionPerformed
+
     @Action
     public void abrirAction() {
         FileFilter fileFilter = new FileNameExtensionFilter("imagem", "jpg");
@@ -232,34 +313,13 @@ public class PDI1View extends FrameView {
     }
 
 
-        /**
-     * Seleciona um arquivo de acordo com as extensoes
-     *
-     * @param extensionsDescription descricao das extensoes dos arquivos que podem ser selcionados
-     * @param extensions as extensoes permitidas
-     *
-     * @return o arquivo selecionado ou null se nada foi selecionado
-     */
-    private File selectFile(String descricao, String extensao) {
-        if(extensao == null)
-            return null;
-
-        FileFilter fileFilter = new FileNameExtensionFilter("imagem", "jpg");
-
-        JFileChooser jFileChooser = new JFileChooser();
-        jFileChooser.setDialogTitle("Selecione um arquivo");
-        jFileChooser.setApproveButtonText("Selecionar");
-        jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        jFileChooser.setFileFilter(null);
-        jFileChooser.setMultiSelectionEnabled(false);
-        jFileChooser.addChoosableFileFilter(fileFilter);
-        jFileChooser.show();
-        return jFileChooser.getSelectedFile();
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton bandaRButton;
+    private javax.swing.JInternalFrame frameImagemEditada;
+    private javax.swing.JInternalFrame frameImagemOriginal;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;
