@@ -1,0 +1,1 @@
+Projeto desenvolvido para obtenção da primeira nota da disciplina de Processamento Digital de Imagens, da UFPB.
